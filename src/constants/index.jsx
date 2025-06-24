@@ -120,7 +120,7 @@ const techStackIcons = [
     },
     {
         name: "Java Developer",
-        modelPath: "/models/java-logo.glb",
+        modelPath: "/models/java-logo.gltf",
         scale: 1.2,
         rotation: [0, 0, 0],
     },
