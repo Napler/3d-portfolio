@@ -221,7 +221,7 @@ const Contact = () => {
               >
                 <group>
                   <primitive 
-                    object={useGLTF('/models/letter.glb').scene} 
+                    object={useGLTF('/models/letter.gltf').scene} 
                     scale={2.2} 
                     position={[0, 0, 0]} 
                     rotation={[0, Math.PI / 4, 0]}
