@@ -24,40 +24,7 @@ const ReactLogo = () => (
 )
 
 const TechIcons = ({ model }) => {
-  // If imgPath is provided, render an image instead of 3D model
-  if (model.imgPath) {
-    return (
-      <div className="flex items-center justify-center w-full h-full">
-        <img 
-          src={model.imgPath} 
-          alt={model.name}
-          className="w-16 h-16 object-contain"
-          style={{ filter: 'brightness(0) invert(1)' }} // Make it white
-        />
-      </div>
-    )
-  }
-
-  // For React Developer, use SVG instead of GLB
-  if (model.name === "React Developer") {
-    return <ReactLogo />
-  }
-
-  // Otherwise render 3D model with error handling
-  let scene
-  try {
-    scene = useGLTF(model.modelPath)
-  } catch (error) {
-    console.error(`Failed to load model: ${model.modelPath}`, error)
-    return (
-      <div className="flex items-center justify-center w-full h-full text-white">
-        <div className="text-center">
-          <div className="text-2xl mb-2">⚠️</div>
-          <div className="text-sm">Model Error</div>
-        </div>
-      </div>
-    )
-  }
+  const scene = useGLTF(model.modelPath)
 
   return (
     <Canvas style={{ width: '100%', height: '100%' }}>
