@@ -2,7 +2,7 @@ import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useMediaQuery } from "react-responsive";
 
-import { Room } from "./Room";
+import { Room } from "./room";
 import HeroLights from "./HeroLight";
 import Particles from "./Particles";
 import { Suspense } from "react";
@@ -30,7 +30,7 @@ const HeroExperience = () => {
                 <HeroLights />
                 <Particles count={100} />
                 <group
-                    scale={isMobile ? 1.8 : 3.2}
+                    scale={isMobile ? 1.8 : 2.6}
                     position={isMobile ? [0, -3.5, 0] : [-2, -6, 0]}
                     rotation={[0, -Math.PI / 4, 0]}
                 >
