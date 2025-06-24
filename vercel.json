@@ -3,6 +3,11 @@
       "env": {
         "NPM_CONFIG_LEGACY_PEER_DEPS": "true"
       }
+    },
+    "env": {
+      "VITE_EMAILJS_SERVICE_ID": "service_qzc2dm3",
+      "VITE_EMAILJS_TEMPLATE_ID": "template_i95orcd",
+      "VITE_EMAILJS_PUBLIC_KEY": "32PuPEnzfgpgmKknt"
     }
   }
   
