@@ -4,7 +4,7 @@ import ShowCaseSection from './components/sections/ShowCaseSection';
 import NavBar from './components/NavBar';
 import LogoSection from './components/sections/LogoSection';
 import FeatureCard from './components/sections/FeatureCard';
-import WorkExperience from './components/sections/workexperience';
+import WorkExperience from './components/sections/WorkExperience';
 import TheckStack from './components/sections/TheckStack';
 import Contact from './components/sections/Contact';
 import Footer from './components/sections/Footer';
