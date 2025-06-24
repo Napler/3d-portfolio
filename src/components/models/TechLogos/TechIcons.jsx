@@ -2,8 +2,62 @@ import React from 'react'
 import { Canvas } from '@react-three/fiber'
 import { useGLTF, Float, Environment } from '@react-three/drei'
 
+// React Logo SVG Component
+const ReactLogo = () => (
+  <div className="flex items-center justify-center w-full h-full">
+    <svg 
+      width="64" 
+      height="64" 
+      viewBox="0 0 64 64" 
+      fill="none" 
+      xmlns="http://www.w3.org/2000/svg"
+      className="text-white"
+    >
+      <g fill="currentColor">
+        <ellipse cx="32" cy="32" rx="6" ry="26" transform="rotate(0 32 32)"/>
+        <ellipse cx="32" cy="32" rx="6" ry="26" transform="rotate(60 32 32)"/>
+        <ellipse cx="32" cy="32" rx="6" ry="26" transform="rotate(120 32 32)"/>
+        <circle cx="32" cy="32" r="4" fill="currentColor"/>
+      </g>
+    </svg>
+  </div>
+)
+
 const TechIcons = ({ model }) => {
-  const scene = useGLTF(model.modelPath)
+  // If imgPath is provided, render an image instead of 3D model
+  if (model.imgPath) {
+    return (
+      <div className="flex items-center justify-center w-full h-full">
+        <img 
+          src={model.imgPath} 
+          alt={model.name}
+          className="w-16 h-16 object-contain"
+          style={{ filter: 'brightness(0) invert(1)' }} // Make it white
+        />
+      </div>
+    )
+  }
+
+  // For React Developer, use SVG instead of GLB
+  if (model.name === "React Developer") {
+    return <ReactLogo />
+  }
+
+  // Otherwise render 3D model with error handling
+  let scene
+  try {
+    scene = useGLTF(model.modelPath)
+  } catch (error) {
+    console.error(`Failed to load model: ${model.modelPath}`, error)
+    return (
+      <div className="flex items-center justify-center w-full h-full text-white">
+        <div className="text-center">
+          <div className="text-2xl mb-2">⚠️</div>
+          <div className="text-sm">Model Error</div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <Canvas style={{ width: '100%', height: '100%' }}>
