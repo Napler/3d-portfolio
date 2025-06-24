@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import TitleHeader from '../titleheader'
 import { Canvas } from '@react-three/fiber'
-import { useGLTF, Float, Environment, OrbitControls } from '@react-three/drei'
+import { useGLTF, Float, Environment } from '@react-three/drei'
 import emailjs from '@emailjs/browser'
 
 const Contact = () => {
@@ -156,7 +156,10 @@ const Contact = () => {
 
           {/* Right Side - 3D Model */}
           <div className='contact-model-wrapper'>
-            <Canvas style={{ width: '100%', height: '100%' }}>
+            <Canvas 
+              style={{ width: '100%', height: '100%' }}
+              camera={{ position: [0, 0, 8], fov: 45 }}
+            >
               <ambientLight intensity={0.4} />
               <directionalLight 
                 position={[5, 5, 5]} 
@@ -204,27 +207,18 @@ const Contact = () => {
                 distance={8}
               />
               <Environment preset='city' />
-              <OrbitControls 
-                enableZoom={true}
-                enablePan={false}
-                enableRotate={true}
-                minDistance={2}
-                maxDistance={10}
-                autoRotate={false}
-                autoRotateSpeed={1}
-              />
               <Float 
                 speed={3} 
-                rotationIntensity={0} 
-                floatIntensity={1.2}
-                floatingRange={[-0.4, 0.4]}
+                rotationIntensity={1} 
+                floatIntensity={1.5}
+                floatingRange={[-0.3, 0.3]}
               >
                 <group>
                   <primitive 
                     object={useGLTF('/models/letter.gltf').scene} 
                     scale={2.2} 
                     position={[0, 0, 0]} 
-                    rotation={[0, Math.PI / 4, 0]}
+                    rotation={[0, -Math.PI / 2, 0]}
                   />
                 </group>
               </Float>
